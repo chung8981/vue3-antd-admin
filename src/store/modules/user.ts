@@ -43,20 +43,21 @@ const user: Module<UserStateType, any> = {
         // 登录
         Login({commit}, userInfo) {
             return new Promise((resolve, reject) => {
-                login(userInfo).then(response => {
+                // login(userInfo).then(response => {
+                    const response = {result: {token: "123" }, code: 0, message: ""}
                     const {result, code, message} = response
-                    if (code == 0) {
+                    // if (code == 0) {
                         console.log(result.token)
                         Storage.set(ACCESS_TOKEN, result.token, 7 * 24 * 60 * 60 * 1000)
                         Storage.set(CURRENT_USER, result, 7 * 24 * 60 * 60 * 1000)
                         commit('SET_TOKEN', result.token)
                         // todo
                         commit('SET_INFO', result)
-                    }
+                    // }
                     resolve(response)
-                }).catch(error => {
-                    reject(error)
-                })
+                // }).catch(error => {
+                //     reject(error)
+                // })
             })
         },
 

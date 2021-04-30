@@ -16,7 +16,7 @@ export const hasPermission = (action: string, include = false) => {
     // 下面只是为了方便演示，不建议这么做
     action = currentRoute.path.split('/').filter(m => m.trim() != '').join('.') + '.' + action
     // console.log(action, currentRoute.meta.permission, '当前路由权限')
-    return currentRoute.meta.permission.includes(action)
+    return (currentRoute.meta as any).permission.includes(action)
 
     // const permissions = currentRoute.meta.permission || []
     // if (include) {
