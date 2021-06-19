@@ -1,5 +1,4 @@
 import http from '@/utils/http/axios';
-import {RequestEnum} from '@/enums/httpEnum'
 
 enum Api {
   adminRole = '/admin/role',
@@ -13,7 +12,7 @@ enum Api {
 export function getAdminRoleAccess(id?: string | number) {
   return http.request({
     url: [Api.adminRoleAccess, id].join('/'),
-    method: RequestEnum.GET,
+    method: 'GET',
   });
 }
 
@@ -24,7 +23,7 @@ export function getAdminRoleAccess(id?: string | number) {
 export function getAdminRole(params) {
   return http.request({
     url: Api.adminRole,
-    method: RequestEnum.GET,
+    method: 'GET',
     params,
   });
 }
@@ -36,7 +35,7 @@ export function getAdminRole(params) {
 export function delAdminRole(id: string) {
   return http.request({
     url: [Api.adminRole, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: 'DELETE',
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -50,7 +49,7 @@ export function delAdminRole(id: string) {
 export function patchAdminRole(id, params) {
   return http.request({
     url: [Api.adminRole, id].join('/'),
-    method: RequestEnum.PATCH,
+    method: 'PATCH',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
@@ -66,7 +65,7 @@ export function patchAdminRole(id, params) {
 export function postAdminRole(params) {
   return http.request({
     url: Api.adminRole,
-    method: RequestEnum.POST,
+    method: 'POST',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息

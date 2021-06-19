@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [{
     redirect: '/dashboard/welcome',
     component: h(markRaw(RouterTransition), {notNeedKey: true}),
     meta: {
-        title: '系统看板',
+        title: '系统',
         icon: 'icon-yibiaopan'
     },
     children: [
@@ -19,12 +19,13 @@ const routes: Array<RouteRecordRaw> = [{
             path: 'welcome',
             name: `${routeName}-welcome`,
             meta: {
-                title: '首页',
+                title: '设备管理',
                 icon: 'icon-shouye',
             },
             component: () => import(/* webpackChunkName: "dashboard-welcome" */ '@/views/shared/dashboard/welcome/index.vue')
         },
-        ]
+        
+    ]
 }]
 
 export default routes

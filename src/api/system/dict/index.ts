@@ -1,5 +1,4 @@
 import http from '@/utils/http/axios';
-import {RequestEnum} from '@/enums/httpEnum'
 
 enum Api {
   adminDictConfig = '/admin/dict_config',
@@ -12,7 +11,7 @@ enum Api {
 export function getAdminDictConfig(params) {
   return http.request({
     url: Api.adminDictConfig,
-    method: RequestEnum.GET,
+    method: 'GET',
     params,
   });
 }
@@ -24,7 +23,7 @@ export function getAdminDictConfig(params) {
 export function delAdminDictConfig(id: string) {
   return http.request({
     url: [Api.adminDictConfig, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: 'DELETE',
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -38,7 +37,7 @@ export function delAdminDictConfig(id: string) {
 export function patchAdminDictConfig(id, params) {
   return http.request({
     url: [Api.adminDictConfig, id].join('/'),
-    method: RequestEnum.PATCH,
+    method: 'PATCH',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
@@ -54,7 +53,7 @@ export function patchAdminDictConfig(id, params) {
 export function postAdminDictConfig(params) {
   return http.request({
     url: Api.adminDictConfig,
-    method: RequestEnum.POST,
+    method: 'POST',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息

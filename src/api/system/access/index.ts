@@ -1,5 +1,4 @@
 import http from '@/utils/http/axios';
-import {RequestEnum} from '@/enums/httpEnum'
 
 enum Api {
   adminAccess = '/admin/access',
@@ -13,7 +12,7 @@ enum Api {
 export function getAdminAccessModule(params?: object) {
   return http.request({
     url: Api.adminAccessModule,
-    method: RequestEnum.GET,
+    method: 'GET',
     params,
   });
 }
@@ -25,7 +24,7 @@ export function getAdminAccessModule(params?: object) {
 export function getAdminAccess(params) {
   return http.request({
     url: Api.adminAccess,
-    method: RequestEnum.GET,
+    method: 'GET',
     params,
   });
 }
@@ -37,7 +36,7 @@ export function getAdminAccess(params) {
 export function delAdminAccess(id: string) {
   return http.request({
     url: [Api.adminAccess, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: 'DELETE',
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -51,7 +50,7 @@ export function delAdminAccess(id: string) {
 export function patchAdminAccess(id, params) {
   return http.request({
     url: [Api.adminAccess, id].join('/'),
-    method: RequestEnum.PATCH,
+    method: 'PATCH',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
@@ -67,7 +66,7 @@ export function patchAdminAccess(id, params) {
 export function postAdminAccess(params) {
   return http.request({
     url: Api.adminAccess,
-    method: RequestEnum.POST,
+    method: 'POST',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息

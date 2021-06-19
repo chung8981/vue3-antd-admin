@@ -6,7 +6,7 @@ import axios, {AxiosResponse} from 'axios';
 import qs from 'qs'
 import {checkStatus} from './checkStatus';
 import {Modal, message as Message} from "ant-design-vue";
-import {RequestEnum, ResultEnum, ContentTypeEnum} from '@/enums/httpEnum';
+import {ContentTypeEnum} from '@/enums/httpEnum';
 
 import {isString} from '@/utils/is/index';
 import {setObjToUrlParams} from '@/utils/urlUtils'
@@ -18,6 +18,16 @@ import router from '@/router'
 import store from '@/store'
 import {createStorage} from "@/utils/Storage";
 const storage = createStorage()
+
+/**
+ * @description: 请求结果集
+ */
+enum ResultEnum {
+    SUCCESS = 0,
+    ERROR = -1,
+    TIMEOUT = 10042,
+    TYPE = 'success',
+}
 /**
  * @description: 数据处理，方便区分多种处理方式
  * axios封装使用了https://github.com/anncwb/vue-vben-admin/tree/main/src/utils/http/axios
@@ -110,7 +120,7 @@ const transform: AxiosTransform = {
 
         config.url = isDev ? `/api${config.url}` : `${apiUrl || ''}${config.url}`;
 
-        if (config.method === RequestEnum.GET) {
+        if (config.method === 'GET') {
             const now = new Date().getTime();
             if (!isString(config.params)) {
                 config.data = {

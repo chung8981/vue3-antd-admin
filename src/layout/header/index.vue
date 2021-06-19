@@ -124,21 +124,21 @@ export default defineComponent({
 
     // 图标列表
     const iconList = [
-      {
-        icon: 'SearchOutlined',
-        tips: '搜索'
-      },
-      {
-        icon: 'GithubOutlined',
-        tips: 'github',
-        eventObject: {
-          click: () => window.open('https://github.com/buqiyuan/vue3-antd')
-        }
-      },
-      {
-        icon:  'SettingOutlined',
-        tips: '网站设置'
-      },
+      // {
+      //   icon: 'SearchOutlined',
+      //   tips: '搜索'
+      // },
+      // {
+      //   icon: 'GithubOutlined',
+      //   tips: 'github',
+      //   eventObject: {
+      //     click: () => window.open('https://github.com/buqiyuan/vue3-antd')
+      //   }
+      // },
+      // {
+      //   icon:  'SettingOutlined',
+      //   tips: '网站设置'
+      // },
       {
         icon: 'LockOutlined',
         tips: '锁屏',

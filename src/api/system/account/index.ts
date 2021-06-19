@@ -1,5 +1,4 @@
 import http from '@/utils/http/axios';
-import {RequestEnum} from '@/enums/httpEnum'
 
 enum Api {
   adminAccount = '/admin/account',
@@ -12,7 +11,7 @@ enum Api {
 export function getAdminAccount(params) {
   return http.request({
     url: Api.adminAccount,
-    method: RequestEnum.GET,
+    method: 'GET',
     params,
   }, {
     isShowErrorMessage: true
@@ -26,7 +25,7 @@ export function getAdminAccount(params) {
 export function delAdminAccount(id: string) {
   return http.request({
     url: [Api.adminAccount, id].join('/'),
-    method: RequestEnum.DELETE,
+    method: 'DELETE',
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
     successMessageText: '删除成功'
@@ -40,7 +39,7 @@ export function delAdminAccount(id: string) {
 export function patchAdminAccount(id, params) {
   return http.request({
     url: [Api.adminAccount, id].join('/'),
-    method: RequestEnum.PATCH,
+    method: 'PATCH',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
@@ -56,7 +55,7 @@ export function patchAdminAccount(id, params) {
 export function postAdminAccount(params) {
   return http.request({
     url: Api.adminAccount,
-    method: RequestEnum.POST,
+    method: 'POST',
     params,
   }, {
     isShowErrorMessage: true, // 是否显示错误提示信息
